@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Top Up Diamond Game</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+  <div class="max-w-xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+    <h1 class="text-2xl font-bold mb-4 text-center">Top Up Diamond</h1>
+
+    <label class="block mb-2">Pilih Game</label>
+    <select id="game" class="w-full p-2 mb-4 border rounded">
+      <option value="mlbb">Mobile Legends</option>
+      <option value="ff">Free Fire</option>
+      <option value="pubg">PUBG Mobile</option>
+    </select>
+
+    <label class="block mb-2">Masukkan ID Pengguna</label>
+    <input type="text" id="userId" class="w-full p-2 mb-4 border rounded" placeholder="Contoh: 123456789 (ID Anda)">
+
+    <label class="block mb-2">Jumlah Diamond</label>
+    <select id="diamond" class="w-full p-2 mb-4 border rounded">
+      <option value="70">70 Diamond - Rp10.000</option>
+      <option value="140">140 Diamond - Rp20.000</option>
+      <option value="355">355 Diamond - Rp50.000</option>
+    </select>
+
+    <label class="block mb-2">Metode Pembayaran</label>
+    <select id="payment" class="w-full p-2 mb-4 border rounded">
+      <option value="dana">DANA</option>
+      <option value="gopay">GoPay</option>
+      <option value="ovo">OVO</option>
+      <option value="pulsa">Pulsa</option>
+    </select>
+
+    <button onclick="topUp()" class="bg-blue-600 text-white px-4 py-2 rounded w-full hover:bg-blue-700">Top Up Sekarang</button>
+
+    <p id="result" class="mt-4 text-green-600 font-semibold"></p>
+  </div>
+
+  <script>
+    function topUp() {
+      const game = document.getElementById('game').value;
+      const userId = document.getElementById('userId').value;
+      const diamond = document.getElementById('diamond').value;
+      const payment = document.getElementById('payment').value;
+
+      if (userId.trim() === '') {
+        alert('Silakan masukkan ID pengguna.');
+        return;
+      }
+
+      document.getElementById('result').textContent =
+        `Berhasil memproses top up ${diamond} Diamond untuk ID ${userId} melalui ${payment.toUpperCase()} di game ${game.toUpperCase()}.`;
+    }
+  </script>
+</body>
+</html>
